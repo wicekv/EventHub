@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Humanizer" Version="2.14.1" />
+      <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.4" />
+      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.2" />
+      <PackageReference Include="Serilog" Version="4.0.0-dev-02160" />
+      <PackageReference Include="Serilog.AspNetCore" Version="8.0.2-dev-00338" />
+      <PackageReference Include="Serilog.Extensions.Logging" Version="8.0.1-dev-10389" />
+      <PackageReference Include="Serilog.Sinks.Console" Version="5.1.0-dev-00943" />
+      <PackageReference Include="Serilog.Sinks.File" Version="5.0.1-dev-00972" />
+      <PackageReference Include="Serilog.Sinks.Seq" Version="7.0.1" />
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+      <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
+      <PackageReference Include="Swashbuckle.AspNetCore.ReDoc" Version="6.5.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\EventHub.Core\EventHub.Core.csproj" />
+    </ItemGroup>
+
+</Project>

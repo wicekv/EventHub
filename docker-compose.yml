@@ -4,3 +4,13 @@
     build:
       context: .
       dockerfile: src/EventHub.Api/Dockerfile
+      
+  eventhub.postgres:
+    image: postgis/postgis
+    container_name: eventHub.postgres
+    environment:
+      POSTGRES_DB: eventHub
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5432:5432"
