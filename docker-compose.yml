@@ -1,0 +1,6 @@
+﻿services:
+  eventhub.api:
+    image: eventhub.api
+    build:
+      context: .
+      dockerfile: src/EventHub.Api/Dockerfile
