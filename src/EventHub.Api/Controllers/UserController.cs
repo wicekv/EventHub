@@ -16,10 +16,10 @@ public class UserController : ControllerBase
     }
     
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody] CreateUserCommand command, CancellationToken cancellationToken)
+    public async Task<IActionResult> Create([FromBody] CreateUserCommand command, CancellationToken cancellationToken)
     {
-        await _mediator.Send(command, cancellationToken);
+        var result = await _mediator.Send(command, cancellationToken);
         
-        return Ok();
+        return Ok(result);
     }
 }
