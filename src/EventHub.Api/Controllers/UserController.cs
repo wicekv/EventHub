@@ -1,4 +1,4 @@
-using EventHub.Application.Commands.User;
+using EventHub.Application.Commands.Users;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

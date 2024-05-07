@@ -1,7 +1,8 @@
+using EventHub.Core.Entities;
 using EventHub.Core.Repositories;
 using MediatR;
 
-namespace EventHub.Application.Commands.User;
+namespace EventHub.Application.Commands.Users;
 
 public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
 {
@@ -14,7 +15,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
 
     public async Task<Guid> Handle(CreateUserCommand request, CancellationToken cancellationToken)
     {
-        var user = Core.Entities.User.Create(request.Email, request.Password);
+        var user = User.Create(request.Email, request.Password);
         
         await _userRepository.AddAsync(user, cancellationToken);
 
