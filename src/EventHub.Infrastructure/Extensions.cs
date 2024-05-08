@@ -16,7 +16,10 @@ public static class Extensions
     {
         services.Configure<AppOptions>(configuration.GetRequiredSection("app")); 
         services.AddSingleton<ExceptionMiddleware>(); 
+        
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IEventRepository, EventRepository>();
+        
         services.AddHttpContextAccessor();
         
         services

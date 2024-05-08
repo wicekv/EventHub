@@ -1,11 +1,12 @@
 using EventHub.Core.ValueObjects.Events;
+using EventHub.Core.ValueObjects.Users;
 
 namespace EventHub.Core.Entities;
 
 public class Event
 {
     public EventId Id { get; private set; }
-    public HostId HostId { get;private set; }
+    public UserId HostId { get;private set; }
     public Title Title { get; private set; }
     public Description Description { get; private set; }
     public DateTime EventDate { get; private set; }
@@ -19,6 +20,7 @@ public class Event
 
     private Event(Guid hostId, string title, string description, string location, DateTime eventDate)
     {
+        Id = Guid.NewGuid();
         HostId = hostId;
         Title = title;
         Description = description;

@@ -18,4 +18,9 @@ internal sealed class UserRepository : IUserRepository
         await _dbContext.AddAsync(user, cancellationToken);
         await _dbContext.SaveChangesAsync(cancellationToken);
     }
+
+    public async Task<User?> GetUser(CancellationToken cancellationToken)
+    {
+        return await _dbContext.Users.FirstOrDefaultAsync(cancellationToken);
+    }
 }

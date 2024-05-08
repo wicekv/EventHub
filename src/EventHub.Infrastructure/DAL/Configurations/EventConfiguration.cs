@@ -1,5 +1,6 @@
 using EventHub.Core.Entities;
 using EventHub.Core.ValueObjects.Events;
+using EventHub.Core.ValueObjects.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -15,6 +16,9 @@ public class EventConfiguration : IEntityTypeConfiguration<Event>
         builder.Property(e => e.Id)
             .HasConversion(e => e.Value, e => new EventId(e));
 
+        builder.Property(e => e.HostId)
+            .HasConversion(e => e.Value, e => new UserId(e));
+        
         builder.Property(u => u.Description)
             .HasConversion(u => u.Value, e => new Description(e));
         
