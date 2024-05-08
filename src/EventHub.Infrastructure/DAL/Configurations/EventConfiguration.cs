@@ -1,4 +1,5 @@
 using EventHub.Core.Entities;
+using EventHub.Core.ValueObjects.Events;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -10,11 +11,19 @@ public class EventConfiguration : IEntityTypeConfiguration<Event>
     {
         builder.ToTable("Events","Event");
 
-        builder.HasKey(u => u.Id);
+        builder.HasKey(e => e.Id);
+        builder.Property(e => e.Id)
+            .HasConversion(e => e.Value, e => new EventId(e));
 
-        builder.Property(u => u.Description);
-        builder.Property(u => u.Title);
-        builder.Property(u => u.EventDate);
-        builder.Property(u => u.Location);
+        builder.Property(u => u.Description)
+            .HasConversion(u => u.Value, e => new Description(e));
+        
+        builder.Property(e => e.Title)
+            .HasConversion(e => e.Value, e => new Title(e));
+
+        builder.Property(e => e.EventDate);
+        
+        builder.Property(e => e.Location)
+            .HasConversion(e => e.Value, e => new Location(e));
     }    
 }

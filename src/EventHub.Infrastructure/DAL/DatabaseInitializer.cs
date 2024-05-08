@@ -7,7 +7,6 @@ namespace EventHub.Infrastructure.DAL;
 
 internal sealed class DatabaseInitializer : IHostedService
 {
-    // Service locator "anti-pattern" (but it depends) :)
     private readonly IServiceProvider _serviceProvider;
 
     public DatabaseInitializer(IServiceProvider serviceProvider)

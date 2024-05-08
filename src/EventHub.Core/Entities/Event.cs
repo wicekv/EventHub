@@ -1,16 +1,18 @@
+using EventHub.Core.ValueObjects.Events;
+
 namespace EventHub.Core.Entities;
 
 public class Event
 {
-    public Guid Id { get; private set; }
-    public Guid HostId { get;private set; }
-    public string Title { get; private set; }
-    public string Description { get; private set; }
+    public EventId Id { get; private set; }
+    public HostId HostId { get;private set; }
+    public Title Title { get; private set; }
+    public Description Description { get; private set; }
     public DateTime EventDate { get; private set; }
-    public string Location { get; private set; }
+    public Location Location { get; private set; }
     
     public User Host { get; set; }
-    public List<Registration> Registrations { get; set; }
+    public IEnumerable<Registration> Registrations { get; set; }
     
     
     private Event() { }

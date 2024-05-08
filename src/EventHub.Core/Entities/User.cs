@@ -1,10 +1,13 @@
+using EventHub.Core.Exceptions.Users;
+using EventHub.Core.ValueObjects.Users;
+
 namespace EventHub.Core.Entities;
 
 public class User
 {
-    public Guid Id { get; private set; }
-    public string Email { get; private set; }
-    public string Password { get; private set; }
+    public UserId Id { get; private set; }
+    public Email Email { get; private set; }
+    public Password Password { get; private set; }
     
     public List<Event> HostedEvents { get; set; }
     public List<Registration> Registrations { get; set; }

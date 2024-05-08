@@ -1,4 +1,5 @@
 using EventHub.Core.Entities;
+using EventHub.Core.ValueObjects.Registrations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -10,8 +11,10 @@ internal sealed class RegistrationConfiguration : IEntityTypeConfiguration<Regis
     {
         builder.ToTable("Registrations","Event");
 
-        builder.HasKey(u => u.Id);
-        
+        builder.HasKey(r => r.Id);
+        builder.Property(r => r.Id)
+            .HasConversion(r => r.Value, r => new RegistrationId(r));
+
         builder
             .HasOne(r => r.User)
             .WithMany(u => u.Registrations)
