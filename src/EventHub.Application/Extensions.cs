@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using EventHub.Application.Behaviours;
 using Microsoft.Extensions.DependencyInjection;
 

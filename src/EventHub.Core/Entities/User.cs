@@ -8,22 +8,22 @@ public class User
     public UserId Id { get; private set; }
     public Email Email { get; private set; }
     public Password Password { get; private set; }
-    
-    public List<Event> HostedEvents { get; set; }
-    public List<Registration> Registrations { get; set; }
+
+    public List<Event> HostedEvents { get; set; } = [];
+    public List<Registration> Registrations { get; set; } = [];
     
     
     private User()
     {
     }
 
-    private User(string email, string password)
+    private User(UserId id, Email email, Password password)
     {
-        Id = Guid.NewGuid();
+        Id = id;
         Email = email;
         Password = password;
     }
 
-    public static User Create(string email, string password)
-        => new User(email, password);
+    public static User Create(UserId id, Email email, Password password)
+        => new User(id, email, password);
 }

@@ -11,7 +11,8 @@ internal static class Extensions
     {
         services
             .AddSingleton<IPasswordHasher<User>, PasswordHasher<User>>()
-            .AddSingleton<IPasswordManager, PasswordManager>();
+            .AddSingleton<IPasswordManager, PasswordManager>()
+            .AddSingleton<IUser, User>();
 
         return services;
     }

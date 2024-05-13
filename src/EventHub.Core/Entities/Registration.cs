@@ -13,4 +13,19 @@ public class Registration
     
     public User User { get; set; }
     public Event Event { get; set; }
+
+
+    private Registration()
+    {
+    }
+
+    private Registration(UserId userId, EventId eventId)
+    {
+        Id = Guid.NewGuid();
+        UserId = userId;
+        EventId = eventId;
+    }
+
+    public static Registration Create(UserId userId, EventId eventId)
+        => new Registration(userId, eventId);
 }
